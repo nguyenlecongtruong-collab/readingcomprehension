@@ -121,11 +121,11 @@
     <div class="container" id="main-container">
         <div class="header">
             <h1>Revision For Final Exam</h1>
-            <p id="display-info"></p>
+            <p id="display-info" style="color:#6366f1; font-weight:bold;"></p>
         </div>
 
         <div id="quiz-content">
-            <h3 id="passage-title" style="color: #4338ca; border-bottom: 2px solid #4338ca; display: inline-block;"></h3>
+            <h3 id="passage-title" style="color: #4338ca; border-bottom: 2px solid #4338ca; display: inline-block; margin-bottom: 15px;"></h3>
             <div class="passage-box" id="passage-text"></div>
             
             <div id="questions-area"></div>
@@ -138,7 +138,7 @@
 
         <div id="finish-screen" style="display:none; text-align:center;">
             <h2 style="color: #4338ca; font-size: 36px;">🎉 HOÀN THÀNH RỒI! 🎉</h2>
-            <p style="font-size: 18px;">Kết quả của em đã được lưu lại. Chúc em có một kỳ thi rực rỡ!</p>
+            <p style="font-size: 18px;">Kết quả của em đã được gửi về cho cô Trường.</p>
             <p id="total-time-display" style="font-weight:bold; font-size:24px; color:#10b981;"></p>
             <button onclick="location.reload()" style="background:#1e293b; color:#fff; width: auto; padding: 15px 40px;" class="action-btn">LÀM LẠI</button>
         </div>
@@ -152,28 +152,32 @@
 
     const passages = [
         {
-            title: "Passage 1: The History of Graffiti",
-            text: "The first drawings on walls appeared in caves thousands of years ago. Later the Ancient Romans and Greeks wrote their names and protest poems on buildings. Modern graffiti seems to have appeared in Philadelphia in the early 1960s, and by the late sixties it had reached New York. The new art form really took off in the 1970s, when people began writing their names, or ‘tags’, on buildings all over the city... Art galleries in New York began buying graffiti in the early seventies... The debate over whether graffiti is art or vandalism is still going on. Peter Vallone thinks that if <u>it</u> is on someone else's property it becomes a crime... graffiti represents freedom and makes cities more <u>vibrant</u>.",
+            title: "Passage 1: Modern Graffiti",
+            text: `The first drawings on walls appeared in caves thousands of years ago. Later the Ancient Romans and Greeks wrote their names and protest poems on buildings. Modern graffiti seems to have appeared in Philadelphia in the early 1960s, and by the late sixties it had reached New York. The new art form really took off in the 1970s, when people began writing their names, or ‘tags’, on buildings all over the city. In the mid seventies it was sometimes hard to see out of a subway car window, because the trains were completely covered in spray paintings known as ‘masterpieces’.<br><br>
+            In the early days, the ‘taggers’ were part of street gangs who were concerned with marking their territory. They worked in groups called ‘crews’, and called what they did ‘writing’ - the term ‘graffiti’ was first used by The New York Times and the novelist Norman Mailer. Art galleries in New York began buying graffiti in the early seventies. But at the same time that it began to be regarded as an art form, John Lindsay, the then mayor of New York, declared the first war on graffiti. By the 1980s it became much harder to write on subway trains without being caught, and instead many of the more established graffiti artists began using roofs of buildings or canvases.<br><br>
+            The debate over whether graffiti is art or vandalism is still going on. Peter Vallone, a New York city councillor, thinks that graffiti done with permission can be art, but if <u>it</u> is on someone else's property it becomes a crime. ‘I have a message for the graffiti vandals out there,’ he said recently. "Your freedom of expression ends where my property begins.” On the other hand, Felix, a member of the Berlin-based group Reclaim Your City, says that artists are reclaiming cities for the public from advertisers, and that graffiti represents freedom and makes cities more <u>vibrant</u>.<br><br>
+            For decades graffiti has been a springboard to international fame for a few. Jean-Michel Basquiat began spraying on the street in the 1970s before becoming a respected artist in the ‘80s. The Frenchman Blek le Rat and the British artist Banksy have achieved international fame by producing complex works with stencils, often making political or humorous points. Works by Banksy have been sold for over £100,000. Graffiti is now sometimes big business.`,
             questions: [
-                { q: "1. Which of the following is the best title for this passage?", opts: ["Famous graffiti artists", "Taggers in graffiti", "The future of graffiti", "The history of graffiti"], ans: 3, ex: "Đoạn văn điểm qua từ thời hang động, Hy Lạp cổ đại đến Philadelphia 1960s và New York hiện tại -> Đây là lịch sử của Graffiti." },
-                { q: "2. Why was the seventies an important decade in the history of graffiti?", opts: ["That was when the trains were covered in spray paintings.", "That was when graffiti first reached New York.", "That was when modern graffiti first became really popular.", "That was when modern graffiti first appeared."], ans: 2, ex: "Đoạn 1 nói: 'The new art form really took off in the 1970s' (thực sự bùng nổ/trở nên phổ biến)." },
-                { q: "3. The word 'it' in paragraph 3 refers to ______________.", opts: ["the debate", "crime", "message", "graffiti"], ans: 3, ex: "Ngữ cảnh: 'if it is on someone else's property' (nếu nó nằm trên tài sản người khác) -> 'nó' ở đây chính là graffiti." },
-                { q: "4. Who coined the phrase 'graffiti'?", opts: ["New York gangs", "The mayor of New York", "A newspaper and an author", "The New Yorkers"], ans: 2, ex: "Đoạn 2 ghi: 'the term ‘graffiti’ was first used by The New York Times and the novelist Norman Mailer'." },
-                { q: "5. The word 'vibrant' in paragraph 3 is closest in meaning to _______.", opts: ["peaceful", "modern", "full of pictures", "full of energy and life"], ans: 3, ex: "vibrant = full of energy and life: sôi động, rực rỡ sức sống." }
+                { q: "1. Which of the following is the best title for this passage?", opts: ["Famous graffiti artists", "Taggers in graffiti", "The future of graffiti", "The history of graffiti"], ans: 3, ex: "Đoạn văn điểm qua quá trình hình thành từ hang động cổ đại đến Philadelphia 1960s và New York hiện tại -> Phù hợp nhất là 'The history of graffiti'." },
+                { q: "2. Why was the seventies an important decade in the history of graffiti?", opts: ["That was when the trains were covered in spray paintings.", "That was when graffiti first reached New York.", "That was when modern graffiti first became really popular.", "That was when modern graffiti first appeared."], ans: 2, ex: "Đoạn 1 ghi: 'The new art form really took off in the 1970s' (thực sự bùng nổ/trở nên phổ biến)." },
+                { q: "3. The word 'it' in paragraph 3 refers to ______________.", opts: ["the debate", "crime", "message", "graffiti"], ans: 3, ex: "Ngữ cảnh: 'if it is on someone else's property it becomes a crime' -> Nếu 'nó' nằm trên tài sản người khác. 'Nó' ở đây thay cho graffiti." },
+                { q: "4. Who coined the phrase 'graffiti'?", opts: ["New York gangs who had a lot of Italian members.", "The man who was the mayor of New York in the late seventies.", "A newspaper and an author.", "The New Yorkers"], ans: 2, ex: "Đoạn 2 ghi rõ: 'the term ‘graffiti’ was first used by The New York Times (báo) and the novelist Norman Mailer (tác giả)'." },
+                { q: "5. The word 'vibrant' in paragraph 3 is closest in meaning to _______.", opts: ["peaceful", "modern", "full of pictures", "full of energy and life"], ans: 3, ex: "vibrant = full of energy and life: sôi động, rực rỡ, đầy sức sống." }
             ]
         },
         {
             title: "Passage 2: Isadora Duncan",
-            text: "Modern dance innovator Isadora Duncan (1877–1927) truly moved beyond boundaries... Born in San Francisco... she moved from London to Paris to Berlin in quick succession, performing in salons and achieving success before twenty... after the revolution in Russia she <u>unsurprisingly</u> moved <u>there</u> in 1921... She cited the sea as an early inspiration... insisting that each movement was born from the one preceding it... <u>Her reception was intertwined with the tensions of a woman whose existence brought the dance of the future to the present, when the present wasn’t always ready to fully comprehend her.</u>",
+            text: `Modern dance innovator Isadora Duncan (1877–1927) truly moved beyond boundaries, especially choreographically. Born in San Francisco, then dancing with Augustine Daly Dance Theatre in 1896, she moved from London to Paris to Berlin in quick succession, performing in salons and achieving success before the age of twenty. In 1905 she established her first school in Germany, aimed at children of all classes, and in 1914 she went to the US and transferred her school there. Duncan founded a school for working-class children in Germany in 1915, and after the revolution in Russia she <u>unsurprisingly</u> moved <u>there</u> in 1921, where she felt she could bring her aesthetic vision to successful results. She cited the sea as an early inspiration for her movement. She placed an emphasis on evolutionary dance motion, insisting that each movement was born from the one preceding it. It means each movement gave rise to the next and so on in succession. This philosophy gave her the title ‘creator of modern dance’.<br><br>
+            She returned to the West in 1925, and after a tour of Germany she settled in Paris. She died in Nice on 14 September 1927, when her shawl got tangled in the wheel of a car and she broke her spine. Duncan’s work was always established in the social conditions of her time. <u>Her reception was intertwined with the tensions of a woman whose existence brought the dance of the future to the present, when the present wasn’t always ready to fully comprehend her.</u> Duncan lived her life between worlds; at the same time the main tool for intervention was her own body, thus she was never without a world.`,
             questions: [
-                { q: "1. Which of the following best summarises the passage?", opts: ["Duncan’s personal life influenced her dance.", "Duncan revolutionised dancing with her different political and aesthetic vision.", "Ducan was so weird that nobody accepted her.", "Duncan changed from an active artist to a passive one."], ans: 1, ex: "Bài viết nhấn mạnh Duncan là người đổi mới (innovator), vượt qua ranh giới và cách mạng hóa múa hiện đại." },
-                { q: "2. The word 'unsurprisingly' is OPPOSITE in meaning to _______.", opts: ["astonishingly", "obviously", "expectedly", "previously"], ans: 0, ex: "unsurprisingly (không bất ngờ) trái nghĩa với astonishingly (kinh ngạc, vô cùng bất ngờ)." },
-                { q: "3. Isadora Duncan achieved her early acclaim in different cities by _______.", opts: ["teaching in dancing schools", "performing in salons", "working in politics", "founding a school"], ans: 1, ex: "Đoạn 1: 'performing in salons and achieving success before the age of twenty'." },
-                { q: "4. The word 'intertwined' is SIMILAR in meaning to ______.", opts: ["misunderstood", "closely related", "simplified", "poorly expressed"], ans: 1, ex: "intertwined = closely related: gắn bó chặt chẽ, quấn quýt vào nhau." },
-                { q: "5. Which of the following is NOT true about Isadora Duncan?", opts: ["She established a school for working-class children.", "She died from an accident in France.", "She was considered the creator of modern dance.", "She believed in the independence of each movement in dancing."], ans: 3, ex: "Đoạn 1 nói cô ấy tin mỗi động tác sinh ra từ cái TRƯỚC nó (nối tiếp nhau), không phải độc lập (independence)." },
-                { q: "6. Which can be inferred from the underlined sentence?", opts: ["Duncan was ready for revolution despite tensions.", "Duncan could not understand future dancing.", "Duncan had relevant ideas but could not understand present dancing.", "Duncan experienced tensions because she was not fully understood at that time."], ans: 3, ex: "Câu gạch chân nói về việc 'hiện tại không luôn sẵn sàng hiểu cô ấy' -> Cô ấy gặp căng thẳng vì không được thấu hiểu." },
+                { q: "1. Which of the following best summarises the passage?", opts: ["Duncan’s personal life influenced her dance.", "Duncan revolutionised dancing with her different political and aesthetic vision.", "Ducan was so weird that nobody accepted her.", "Duncan changed from an active artist to a passive one."], ans: 1, ex: "Xuyên suốt bài nói về việc Duncan đã thay đổi hoàn toàn quan niệm về múa (revolutionised dancing) bằng những cái nhìn khác biệt về nghệ thuật và xã hội." },
+                { q: "2. The word 'unsurprisingly' is OPPOSITE in meaning to _______.", opts: ["astonishingly", "obviously", "expectedly", "previously"], ans: 0, ex: "unsurprisingly (không ngạc nhiên/đúng như dự đoán) trái nghĩa với astonishingly (kinh ngạc/vô cùng bất ngờ)." },
+                { q: "3. Isadora Duncan achieved her early acclaim in different cities by _______.", opts: ["teaching in dancing schools", "performing in salons", "working in politics", "founding a school"], ans: 1, ex: "Đoạn 1 ghi: 'performing in salons and achieving success before the age of twenty'." },
+                { q: "4. The word 'intertwined' is SIMILAR in meaning to ______.", opts: ["misunderstood", "closely related", "simplified", "poorly expressed"], ans: 1, ex: "intertwined = closely related: gắn kết chặt chẽ với nhau." },
+                { q: "5. Which of the following is NOT true about Isadora Duncan?", opts: ["She established a school for working-class children.", "She died from an accident in France.", "She was considered the creator of modern dance.", "She believed in the independence of each movement in dancing."], ans: 3, ex: "Sai vì đoạn 1 nói cô ấy tin 'mỗi động tác được sinh ra từ động tác TRƯỚC nó' (nối tiếp nhau), không phải độc lập (independence)." },
+                { q: "6. Which of the following can be inferred from the underlined sentence?", opts: ["Duncan was ready for revolution despite tensions.", "Duncan could not comprehend future dancing.", "Duncan had relevant ideas but could not understand present dancing.", "Duncan experienced tensions when she wanted to revolutionize dancing but was not fully understood."], ans: 3, ex: "Câu gạch chân nhấn mạnh việc Duncan mang cái mới ('múa của tương lai') đến hiện tại nhưng 'hiện tại chưa sẵn sàng để hiểu cô ấy' -> Cô ấy gặp căng thẳng do chưa được thấu hiểu." },
                 { q: "7. What inspired Duncan’s early movement?", opts: ["other artists’ movements", "vision", "sea", "stage"], ans: 2, ex: "Đoạn 1: 'She cited the sea as an early inspiration for her movement'." },
-                { q: "8. The word 'there' refers to ______.", opts: ["Russia", "Germany", "U.S.", "London"], ans: 0, ex: "Câu trước nhắc tới 'the revolution in Russia', câu sau nói 'moved there' -> Russia." }
+                { q: "8. The word 'there' refers to ______.", opts: ["Russia", "Germany", "U.S.", "London"], ans: 0, ex: "Dựa vào câu: 'after the revolution in Russia she moved there' -> Russia." }
             ]
         }
     ];
@@ -181,15 +185,18 @@
     function startQuiz() {
         const n = document.getElementById('student-name').value.trim();
         const c = document.getElementById('student-class').value.trim();
-        if(!n || !c) return alert("Nhập đủ thông tin mới 'múa' được bà ơi!");
+        if(!n || !c) return alert("Nhập tên với lớp mới bắt đầu được nha!");
         studentData.name = n; studentData.className = c;
         studentData.startTime = new Date().toLocaleString('vi-VN');
         startTimeObj = new Date();
         document.getElementById('info-modal').style.display = 'none';
         document.getElementById('main-container').style.display = 'block';
-        document.getElementById('display-info').innerText = `Học sinh: ${n} | Lớp: ${c}`;
+        document.getElementById('display-info').innerText = `${n} - Lớp ${c}`;
+        
+        // Nhạc lofi Coffee Shop (ID: 5qap5aO4i9A)
         document.getElementById('music-player').style.display = 'block';
         document.getElementById('yt-iframe').src = "https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1";
+        
         startTimer(); loadPassage();
     }
 
@@ -206,7 +213,7 @@
         p.questions.forEach((q, qIdx) => {
             const div = document.createElement('div');
             div.className = 'question-item';
-            div.innerHTML = `<div class="q-title">${q.q}</div><div class="options-grid" id="opts-${qIdx}"></div><div class="explanation" id="ex-${qIdx}"></div>`;
+            div.innerHTML = `<div class="q-title">Question ${qIdx + 1}: ${q.q}</div><div class="options-grid" id="opts-${qIdx}"></div><div class="explanation" id="ex-${qIdx}"></div>`;
             qArea.appendChild(div);
             const optCont = document.getElementById(`opts-${qIdx}`);
             q.opts.forEach((opt, oIdx) => {
@@ -227,16 +234,17 @@
 
     function submitPassage() {
         const p = passages[currentPassageIdx];
-        if (Object.keys(selections).length < p.questions.length) return alert("Còn câu chưa làm kìa bé ơi!");
+        if (Object.keys(selections).length < p.questions.length) return alert("Em ơi còn câu chưa làm kìa, làm hết mới nộp được nha!");
         
         p.questions.forEach((q, qIdx) => {
             const selected = selections[qIdx];
             const correct = q.ans;
             const btns = document.getElementById(`opts-${qIdx}`).querySelectorAll('.opt-btn');
-            btns.forEach(b => b.disabled = true);
             const exBox = document.getElementById(`ex-${qIdx}`);
             exBox.style.display = 'block';
             exBox.innerHTML = `<b>Giải thích:</b> ${q.ex}`;
+            
+            btns.forEach(b => b.disabled = true);
             if (selected === correct) document.getElementById(`btn-${qIdx}-${selected}`).classList.add('correct');
             else {
                 document.getElementById(`btn-${qIdx}-${selected}`).classList.add('incorrect');
